@@ -5,16 +5,19 @@ function timeConversion(time){
         let hours = time.slice(0, 2);
         let minutes = time.slice(3, 5);
         let seconds = time.slice(6, 8);
-        let amPM = time.slice(8, 10); 
-        if (hours > 12 || minutes > 59 || seconds > 59 || time.length != 10) {
+        let amPM = time.slice(8, 10);
+        if (hours > 12 || minutes > 59 || seconds > 59 || time.length < 10) {
             return false;
         }
-        if (amPM != "AM" && amPM != "PM") return false;
         if (amPM == "AM" && hours == "12") hours = "00";
         if (amPM == "PM" && hours != "12") hours =  parseInt(hours) + 12;
 
         return hours + time.slice(2, 8);
     }
-module.exports = {
-    timeConversion
-}
+    
+      console.log(timeConversion("12:00:00AM")); 
+
+
+    // module.exports = {
+    //     timeConversion
+    // }
